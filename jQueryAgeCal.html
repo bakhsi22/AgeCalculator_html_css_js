@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="jquery-ui.css" />
+    <script src="jquery.js"></script>
+    <script src="jquery-ui.js"></script>
+    <script type = "text/javascript">
+        $(document).ready(function () {
+            var age = "";
+            $('#dob').datepicker({
+                onSelect: function (value, ui) {
+                    // to get current date
+                    var today = new Date();
+                    //extracting year fronm today date
+                    age = today.getFullYear() - ui.selectedYear;
+                    // setting age to text box
+                    $('#age').val(age);
+                },
+                // proreties to allow us to change month and year
+                changeMonth: true,
+                changeYear: true
+            })
+        })
+    </script>
+</head>
+<body>
+    Enter Date of Birth: <input type="text" id = "dob" /><br/><br/>
+    Age: <input type="text" id = "age" readonly/>
+</body>
+</html>
